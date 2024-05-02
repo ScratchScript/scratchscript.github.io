@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#EB6237"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-05-02T23:53:46.7236176"><title>Functions | ScratchScript</title><script type="application/json" id="virtual-toc-data">[{"id":"member-functions","level":0,"title":"Member functions","anchor":"#member-functions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Functions | ScratchScript"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="ScratchScript Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/scrs/1.0/functions.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Functions | ScratchScript"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/scrs/1.0/functions.html#webpage",
+    "url": "writerside-documentation/scrs/1.0/functions.html",
+    "name": "Functions | ScratchScript",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/scrs/#website",
+    "url": "writerside-documentation/scrs/",
+    "name": "ScratchScript Help"
+}</script><!-- End Schema.org --></head><body data-id="Functions" data-main-title="Functions" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Frontend.md|Frontend///Syntax.md|Syntax"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>ScratchScript 1.0 Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Functions" id="Functions.md">Functions</h1><p id="bz00q6_35">Functions are reusable pieces of code that receive an input and produce an output (or modify the program's state).</p><p id="bz00q6_36">Functions are actually internally called &quot;procedures&quot; in Scratch, but are named &quot;functions&quot; in ScratchScript for simplicity.</p><aside class="prompt" data-type="note" data-title="" id="bz00q6_37"><p id="bz00q6_38">The compiler has different concepts of &quot;procedures&quot; and &quot;functions&quot;, which is covered in <a href="procedures-and-functions.html" id="bz00q6_39" data-tooltip="The compiler has different uses for &quot;procedures&quot; and &quot;functions&quot;.">the inner workings</a>.</p></aside><p id="bz00q6_40">To define a function, use the <code class="code" id="bz00q6_41">function</code> keyword:</p><div class="code-block" data-lang="ts">
+function doNothing() {
+}
+</div><p id="bz00q6_43">Inputs can be specified with or without the type:</p><div class="code-block" data-lang="ts">
+function sum(a: number, b: number): number {
+    return a + b;
+}
+// is the same as
+function sum(a, b) {
+    return a + b;
+}
+</div><aside class="prompt" data-type="tip" data-title="" id="bz00q6_45"><p id="bz00q6_46">It is recommended to specify argument types so that the compiler can do additional checks. It also helps with code readability in general.</p></aside><aside class="prompt" data-type="warning" data-title="" id="bz00q6_47"><p id="bz00q6_48">At the moment there is no support for optional/default values. This might be added in a future release.</p></aside><p id="bz00q6_49">Unlike Scratch, one can change function arguments in-place without cloning them to local variables:</p><div class="code-block" data-lang="ts">
+function subtractAndDouble(x: number): number {
+    x--;
+    x *= 2;
+    return x;
+}
+</div><section class="chapter"><h2 id="member-functions" data-toc="member-functions">Member functions</h2><p id="bz00q6_51">ScratchScript supports creating extensions for types via the <code class="code" id="bz00q6_52">@extension</code> attribute. This means that a function can be called on specific objects, unlike static functions.</p><div class="code-comparer" id="bz00q6_53" data-comparing="horizontally"><div class="code-block" data-lang="ts" data-title="Without extensions">
+function firstCharacter(str) {
+    return str[0];
+}
+
+on start {
+    say(firstCharacter(&quot;hello!&quot;)) // will say &quot;h&quot;
+}
+</div><div class="code-block" data-lang="ts" data-title="With extensions">
+@extension(string) function firstCharacter(str) {
+    return str[0];
+}
+
+on start {
+    say(&quot;hello!&quot;.firstCharacter()); // will also say &quot;h&quot;,
+                                    // but the code is a bit cleaner!
+}
+</div></div></section><div class="last-modified">Last modified: 02 мая 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="control-flow.html" class="navigation-links__prev">Control flow</a><a href="attribute.html" class="navigation-links__next">Attributes</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.js"></script></body></html>

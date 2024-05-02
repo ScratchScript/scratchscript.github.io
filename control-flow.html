@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#EB6237"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-05-02T23:53:46.6977236"><title>Control flow | ScratchScript</title><script type="application/json" id="virtual-toc-data">[{"id":"if-else","level":0,"title":"If/else","anchor":"#if-else"},{"id":"while","level":0,"title":"While","anchor":"#while"},{"id":"repeat","level":0,"title":"Repeat","anchor":"#repeat"},{"id":"for","level":0,"title":"For","anchor":"#for"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Control flow | ScratchScript"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="ScratchScript Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/scrs/1.0/control-flow.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Control flow | ScratchScript"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/scrs/1.0/control-flow.html#webpage",
+    "url": "writerside-documentation/scrs/1.0/control-flow.html",
+    "name": "Control flow | ScratchScript",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/scrs/#website",
+    "url": "writerside-documentation/scrs/",
+    "name": "ScratchScript Help"
+}</script><!-- End Schema.org --></head><body data-id="Control-flow" data-main-title="Control flow" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Frontend.md|Frontend///Syntax.md|Syntax"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>ScratchScript 1.0 Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Control-flow" id="Control-flow.md">Control flow</h1><p id="-spm0wl_30">ScratchScript incorporates control flow structures from both languages. This includes <code class="code" id="-spm0wl_31">for</code> loops from TypeScript and <code class="code" id="-spm0wl_32">repeat</code> loops from Scratch.</p><aside class="prompt" data-type="warning" data-title="" id="-spm0wl_33"><p id="-spm0wl_34">ScratchScript is also lexically scoped, which means all control flow <span class="control" id="-spm0wl_35">must be</span> encased in curly brackets (<code class="code" id="-spm0wl_36">{}</code>).</p></aside><section class="chapter"><h2 id="if-else" data-toc="if-else">If/else</h2><div class="code-block" data-lang="ts">
+if(condition) {
+    // ...
+}
+else if(condition2) {
+    // ...
+}
+else {
+    // ...
+}
+</div></section><section class="chapter"><h2 id="while" data-toc="while">While</h2><div class="code-block" data-lang="ts">
+while(condition) {
+    // ...
+    if(breakCondition) {
+        break;
+    }
+}
+</div></section><section class="chapter"><h2 id="repeat" data-toc="repeat">Repeat</h2><div class="code-block" data-lang="ts">
+repeat(times) { // times must be a number
+    // ...
+    if(breakCondition) {
+        break;
+    }
+}
+</div></section><section class="chapter"><h2 id="for" data-toc="for">For</h2><p id="-spm0wl_40">Like in Typescript, <code class="code" id="-spm0wl_41">for</code> loops have the syntax <code class="code" id="-spm0wl_42">for(definition; condition; change)</code>:</p><div class="code-block" data-lang="ts">
+for(let x = 0; x &lt; 100; x++) {
+    // ...
+    if(breakCondition) {
+        break;
+    }
+}
+</div></section><div class="last-modified">Last modified: 02 мая 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="types.html" class="navigation-links__prev">Types</a><a href="functions.html" class="navigation-links__next">Functions</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b259/app.js"></script></body></html>
